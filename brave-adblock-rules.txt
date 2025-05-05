@@ -1,6 +1,6 @@
 ! https://gist.github.com/maxmilton/8f352d731a40e6deacda043ec84b8be3
 ! https://github.com/gorhill/uBlock/wiki/Static-filter-syntax
-! https://help.eyeo.com/adblockplus/how-to-write-filters
+! https://help.adblockplus.org/hc/articles/360062733293-How-to-write-filters
 
 ! Unwanted or bandwidth draining resources
 $font
@@ -20,9 +20,7 @@ $webrtc
 ##noembed
 ##frameset
 ##frame
-! FIXME: Exception: mail.proton.me + iframe with no src attribute or src="about:blank". Then remove `[src]:not([src="about:blank"])`.
-!*,~mail.proton.me##iframe:not([src^="https://challenges.cloudflare.com/"]):not([src^="https://www.recaptcha.net/recaptcha/"]):not([src^="https://www.google.com/recaptcha/"])
-##iframe[src]:not([src="about:blank"]):not([src^="https://challenges.cloudflare.com/"]):not([src^="https://www.recaptcha.net/recaptcha/"]):not([src^="https://www.google.com/recaptcha/"])
+~mail.proton.me,~docs.proton.me##iframe:not([src^="https://challenges.cloudflare.com/"]):not([src^="https://www.recaptcha.net/recaptcha/"]):not([src^="https://www.google.com/recaptcha/"])
 ##fencedframe
 ##noframes
 google.com
@@ -38,15 +36,16 @@ vimeo.com
 @@github.com^$other
 
 ! Development exceptions
-@@||localhost:3000^
-@@||rsms.me/inter/font-files$domain=cherrymint.local|listensync.local|localhost,font
-@@||fonts.gstatic.com/s/$domain=localhost,font
-@@cherrymint.local^
-@@listensync.local^
+!@@||localhost:3000^
+!@@||rsms.me/inter/font-files$domain=bugbox.local|cherrymint.local|listensync.local|localhost,font
+!@@||fonts.gstatic.com/s/$domain=localhost,font
+!@@bugbox.local^
+!@@cherrymint.local^
+!@@listensync.local^
 
 ! TODO: Remove. For dev/test.
-||io.bugbox.app/v1/
-||io.bugbox.app/v1/*.js$redirect=empty
+||io.bugbox.app/v*/
+||io.bugbox.app/v*/*.js$script,redirect-rule=noop.js
 
 ! Other exceptions (uncomment when necessary)
 !@@||pro.kraken.com^$other
@@ -60,20 +59,20 @@ vimeo.com
 @@||docs-editor.proton.me^$domain=docs.proton.me,subdocument
 
 ! DSL
-gtm.dropshiplifestyle.com
-@@||player.vimeo.com$domain=blueprint.dropshiplifestyle.com,subdocument
-@@||player.vimeo.com/api/player.js$domain=blueprint.dropshiplifestyle.com
-@@||player.vimeo.com/video$domain=blueprint.dropshiplifestyle.com
-player.vimeo.com#@#video
+!gtm.dropshiplifestyle.com
+!@@||player.vimeo.com$domain=blueprint.dropshiplifestyle.com,subdocument
+!@@||player.vimeo.com/api/player.js$domain=blueprint.dropshiplifestyle.com
+!@@||player.vimeo.com/video$domain=blueprint.dropshiplifestyle.com
+!player.vimeo.com#@#video
 
 ! Shopify
 !@@||admin.shopify.com^$other
 !@@||cdn.shopify.com^$domain=admin.shopify.com
 
 ! Movie Box Pro
-www.movieboxpro.app#@#video
-@@shegu.net$domain=www.movieboxpro.app,media
+!www.movieboxpro.app#@#video
+!@@shegu.net$domain=www.movieboxpro.app,media
 
 ! ABC iview
-@@iview.abc.net.au$media,other
-iview.abc.net.au#@#video
+!@@iview.abc.net.au$media,other
+!iview.abc.net.au#@#video
