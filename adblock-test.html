@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AdBlock Rule Test Page</title>
+  <style>
+    body {
+      font-family: 'ui-sans-serif', 'system-ui', 'sans-serif';
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      color: #333;
+    }
+
+    h1, h2, h3 {
+      color: #2c3e50;
+    }
+
+    iframe {
+      width: 100%;
+      height: 150px;
+      border: 1px solid #ccc;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 10px 15px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .test-section {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      background-color: #f9f9f9;
+    }
+
+    .test-container {
+      margin-bottom: 20px;
+    }
+
+    .test-container > h3 {
+      margin-top: 0;
+    }
+
+    .info {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 5px;
+    }
+
+    .status {
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 14px;
+      display: inline-block;
+      margin-top: 5px;
+    }
+
+    .loaded {
+      background-color: #d4edda;
+      color: #155724;
+    }
+
+    .blocked {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+  </style>
+</head>
+<body>
+  <h1>AdBlock Rule Test Page</h1>
+  <p>This page allows you to test various AdBlock rules, particularly those targeting subdocuments (iframes).</p>
+
+  <div class="test-section">
+    <h2>Custom AdBlock Rules</h2>
+    <p>You can these rules: <a href="https://gist.github.com/maxmilton/8f352d731a40e6deacda043ec84b8be3" target="_blank">https://gist.github.com/maxmilton/8f352d731a40e6deacda043ec84b8be3</a>.</p>
+    <p>Add them in <a href="brave://adblock" target="_blank">brave://adblock</a> and reload this page.</p>
+    <p>NOTE: Frames should both have their network requests blocked <em>and</em> be visually hidden.</p>
+  </div>
+
+  <div class="test-section">
+    <h2>Iframe Tests</h2>
+
+    <div class="test-container">
+      <h3>1. Blank Iframe (should be allowed)</h3>
+      <div class="info">Source: about:blank</div>
+      <iframe src="about:blank" id="blank-iframe"></iframe>
+      <div id="blank-status" class="status">Checking status...</div>
+    </div>
+
+    <div class="test-container">
+      <h3>2. Blank Iframe (should be allowed)</h3>
+      <div class="info">Source: missing (no src attribute, defaults to about:blank)</div>
+      <iframe id="blank2-iframe"></iframe>
+      <div id="blank2-status" class="status">Checking status...</div>
+    </div>
+
+    <div class="test-container">
+      <h3>3. Local Browser Resource Iframe (should be blocked)</h3>
+      <div class="info">Source: about://version</div>
+      <iframe src="about://version" id="local1-iframe"></iframe>
+      <div id="local1-status" class="status">Checking status...</div>
+    </div>
+
+    <div class="test-container">
+      <h3>4. Local HTML Document Iframe (should be blocked)</h3>
+      <div class="info">Source: /local.html</div>
+      <iframe src="/local.html" id="local2-iframe"></iframe>
+      <div id="local2-status" class="status">Checking status...</div>
+    </div>
+
+    <div class="test-container">
+      <h3>5. Local Image File Iframe (should be blocked)</h3>
+      <div class="info">Source: /favicon.ico</div>
+      <iframe src="/favicon.ico" id="local3-iframe"></iframe>
+      <div id="local3-status" class="status">Checking status...</div>
+    </div>
+
+    <div class="test-container">
+      <h3>6. Regular Iframe (should be blocked)</h3>
+      <div class="info">Source: https://example.com</div>
+      <iframe src="https://example.com" id="regular-iframe"></iframe>
+      <div id="regular-status" class="status">Checking status...</div>
+    </div>
+
+    <div class="test-container">
+      <h3>7. Cloudflare Challenges Iframe (should be allowed)</h3>
+      <div class="info">Source: https://challenges.cloudflare.com</div>
+      <iframe src="https://challenges.cloudflare.com" id="cloudflare-iframe"></iframe>
+      <div id="cloudflare-status" class="status">Checking status...</div>
+    </div>
+
+    <div class="test-container">
+      <h3>8. Google Iframe (should be blocked)</h3>
+      <div class="info">Source: https://www.google.com</div>
+      <iframe src="https://www.google.com" id="google-iframe"></iframe>
+      <div id="google-status" class="status">Checking status...</div>
+    </div>
+
+    <div class="test-container">
+      <h3>9. Protonmail Iframe (should be blocked)</h3>
+      <div class="info">Source: https://mail.proton.me/</div>
+      <iframe src="https://mail.proton.me/" id="protonmail-iframe"></iframe>
+      <div id="protonmail-status" class="status">Checking status...</div>
+    </div>
+  </div>
+
+  <div class="test-section">
+    <h2>Script-Generated Iframe Test</h2>
+
+    <div class="test-container">
+      <h3>1. Dynamic Iframe Creation (should be blocked)</h3>
+      <button id="create-iframe">Create Dynamic Iframe</button>
+      <div id="dynamic-test-container"></div>
+      <div id="dynamic-status" class="status">Click button to test</div>
+    </div>
+  </div>
+
+  <div class="test-section">
+    <h2>Cloudflare Turnstile Test</h2>
+
+    <div class="test-container">
+      <h3>1. Turnstile Challenge (should be allowed)</h3>
+      <div class="info">Explicitly rendered Cloudflare Turnstile challenge.</div>
+      <div id="turnstile-container"></div>
+      <div id="turnstile-status" class="status">Checking status...</div>
+      <div id="turnstile-status2" class="status"></div>
+    </div>
+  </div>
+
+  <div class="test-section">
+    <h2>Google reCAPTCHA Test</h2>
+
+    <div class="test-container">
+      <h3>1. reCAPTCHA Challenge (should be allowed)</h3>
+      <div class="info">Explicitly rendered Google reCAPTCHA challenge.</div>
+      <div id="recaptcha-container"></div>
+      <div id="recaptcha-status" class="status">Checking status...</div>
+      <div id="recaptcha-status2" class="status"></div>
+    </div>
+  </div>
+
+  <script>
+    // Function to check if iframe loaded successfully
+    function checkIframeStatus(iframeId, statusId) {
+      const iframe = document.getElementById(iframeId);
+      const statusElement = document.getElementById(statusId);
+
+      try {
+        // Try to access the iframe content - will throw error if blocked
+        setTimeout(() => {
+          try {
+            // This will throw an error if the iframe is cross-origin
+            // but loaded, or if it's completely blocked
+            const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+
+            // If we get here, it's likely same-origin and loaded
+            if (iframeDoc.documentElement.outerHTML === '<html><head></head><body></body></html>') {
+              statusElement.textContent = "Loaded, but empty";
+              statusElement.className = "status loaded";
+            } else {
+              statusElement.textContent = "Loaded";
+              statusElement.className = "status loaded";
+            }
+          } catch (error) {
+            // Check if iframe has a src attribute with content
+            if (iframe.getAttribute('src') && iframe.getAttribute('src') !== 'about:blank') {
+              // We can use offsetHeight as a rough indicator
+              if (iframe.offsetHeight > 0) {
+                statusElement.textContent = "Likely loaded (cross-origin)";
+                statusElement.className = "status loaded";
+              } else {
+                statusElement.textContent = "Blocked or Failed to Load";
+                statusElement.className = "status blocked";
+              }
+            } else {
+              statusElement.textContent = "Blocked or Failed to Load";
+              statusElement.className = "status blocked";
+            }
+          }
+        }, 2000); // Wait 2 seconds to check status
+      } catch (error) {
+        statusElement.textContent = "Blocked or Failed to Load";
+        statusElement.className = "status blocked";
+      }
+    }
+
+    // Check all iframes
+    window.onload = function () {
+      checkIframeStatus('blank-iframe', 'blank-status');
+      checkIframeStatus('blank2-iframe', 'blank2-status');
+      checkIframeStatus('local1-iframe', 'local1-status');
+      checkIframeStatus('local2-iframe', 'local2-status');
+      checkIframeStatus('local3-iframe', 'local3-status');
+      checkIframeStatus('regular-iframe', 'regular-status');
+      checkIframeStatus('cloudflare-iframe', 'cloudflare-status');
+      checkIframeStatus('google-iframe', 'google-status');
+      checkIframeStatus('protonmail-iframe', 'protonmail-status');
+
+      // Setup dynamic iframe creation
+      document.getElementById('create-iframe').addEventListener('click', function() {
+        const container = document.getElementById('dynamic-test-container');
+        container.innerHTML = ''; // Clear previous
+
+        const iframe = document.createElement('iframe');
+        iframe.src = 'https://www.bing.com';
+        iframe.id = 'dynamic-iframe';
+        container.appendChild(iframe);
+
+        const statusElement = document.getElementById('dynamic-status');
+        statusElement.textContent = 'Checking status...';
+        statusElement.className = 'status';
+
+        setTimeout(() => {
+          checkIframeStatus('dynamic-iframe', 'dynamic-status');
+        }, 500);
+      });
+    };
+  </script>
+
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"></script>
+  <script>
+    if ('turnstile' in window) {
+      turnstile.ready(function () {
+        const statusElement = document.getElementById('turnstile-status');
+        const statusElement2 = document.getElementById('turnstile-status2');
+
+        try {
+          // https://developers.cloudflare.com/turnstile/troubleshooting/testing/
+          const token = turnstile.render("#turnstile-container", {
+            sitekey: "3x00000000000000000000FF", // dummy test key to force an interactive challenge
+            'error-callback': function (error) {
+              // https://developers.cloudflare.com/turnstile/troubleshooting/client-side-errors/error-codes/
+              statusElement2.textContent = "Loaded, but error: " + error;
+              statusElement2.className = "status blocked";
+            },
+            'unsupported-callback': function () {
+              statusElement2.textContent = "Loaded, but unsupported";
+              statusElement2.className = "status blocked";
+            },
+            'expired-callback': function () {
+              statusElement2.textContent = "Loaded, but token expired";
+              statusElement2.className = "status loaded";
+            },
+            'timeout-callback': function () {
+              statusElement2.textContent = "Loaded, but timed out";
+              statusElement2.className = "status loaded";
+            },
+          });
+
+          statusElement.textContent = `Loaded, token: ${token}`;
+          statusElement.className = "status loaded";
+        } catch (error) {
+          statusElement.textContent = "Blocked or Failed to Load";
+          statusElement.className = "status blocked";
+        }
+      });
+    } else {
+      const statusElement = document.getElementById('turnstile-status');
+      statusElement.textContent = "Blocked or Failed to Load";
+      statusElement.className = "status blocked";
+    }
+  </script>
+
+  <!-- <script src="https://www.google.com/recaptcha/api.js?render=explicit"></script> -->
+  <script src="https://www.recaptcha.net/recaptcha/api.js?render=explicit"></script>
+  <script>
+    if ('grecaptcha' in window) {
+      grecaptcha.ready(function () {
+        const statusElement = document.getElementById('recaptcha-status');
+        const statusElement2 = document.getElementById('recaptcha-status2');
+
+        try {
+          grecaptcha.render("recaptcha-container", {
+            sitekey: "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI", // test key
+            'error-callback': function (error) {
+              statusElement2.textContent = "Loaded, but error: " + error;
+              statusElement2.className = "status blocked";
+            },
+            'expired-callback': function () {
+              statusElement2.textContent = "Loaded, but response expired";
+              statusElement2.className = "status loaded";
+            },
+          });
+
+          statusElement.textContent = 'Loaded';
+          statusElement.className = "status loaded";
+        } catch (error) {
+          statusElement.textContent = "Blocked or Failed to Load";
+          statusElement.className = "status blocked";
+        }
+      });
+    } else {
+      const statusElement = document.getElementById('recaptcha-status');
+      statusElement.textContent = "Blocked or Failed to Load";
+      statusElement.className = "status blocked";
+    }
+  </script>
+</body>
+</html>
