@@ -1,0 +1,38 @@
+! Title: MM Development
+! Expires: 2 days
+! Homepage: https://raw.githubusercontent.com/maxmilton/adblock-rules/master/lists/mm-development.txt
+
+! Development tooling
+@@||productionresults*.blob.core.windows.net/actions-results/$xhr,domain=github.com
+@@||viewscreen.githubusercontent.com^$subdocument,domain=github.com
+@@||semgrep.dev^$other
+
+! Development exceptions
+@@localhost:3000^
+@@localhost:5000^
+@@*.local^
+!@@||fonts.gstatic.com/s/$font,xhr,domain=localhost|127.0.0.1
+
+! Dev Tools: Refined GitHub chrome extension
+@@||api.github.com^$xhr,domain=hlepfoohegkhhmjieoechaddaejaokhf
+
+! Dev Tools: Hoppscotch
+@@||hoppscotch.io^$other
+@@||api.hoppscotch.io/graphql^$websocket,domain=hoppscotch.io
+@@||firestore.googleapis.com/google.firestore.v1.Firestore/$xhr,ping,domain=hoppscotch.io
+@@||identitytoolkit.googleapis.com/v1/$xhr,domain=hoppscotch.io
+@@||www.googleapis.com/identitytoolkit/v3/relyingparty/getProjectConfig$xhr,domain=postwoman-api.firebaseapp.com
+
+! Dev Tools: motherduck.com & duckdb -ui
+||api.motherduck.com/logging_sink.LoggingSink/$all,important
+@@||api.motherduck.com^$xhr,domain=app.motherduck.com|localhost
+@@||auth.motherduck.com/oauth/token^$xhr,domain=localhost
+@@localhost:4213^$font
+
+! Dev Tools: Flutter devtools
+!127.0.0.1:9101/devtools_analytics.js^$script,redirect=user-devtools-analytics.js
+!@@127.0.0.1:9101/flutter_service_worker.js^$other
+!@@127.0.0.1:9101/assets/$font
+!@@127.0.0.1:9101/api/$xhr
+!@@||docs.flutter.dev/f/devtools-releases.json^$xhr,domain=127.0.0.1
+!@@||docs.flutter.dev/tools/devtools/$xhr,domain=127.0.0.1

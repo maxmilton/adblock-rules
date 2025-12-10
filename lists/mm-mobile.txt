@@ -1,0 +1,37 @@
+! Title: MM Mobile
+! Expires: 7 days
+! Homepage: https://raw.githubusercontent.com/maxmilton/adblock-rules/master/lists/mm-mobile.txt
+
+! Unwanted or bandwidth draining resources
+$font
+$media
+$object
+$other
+$ping
+$subdocument
+$webrtc
+$websocket,third-party
+!$xhr,third-party
+##audio
+##video
+##track
+##embed:not([src="about:blank"][type="application/pdf"])
+##noembed
+##frameset
+##frame
+##iframe:not([src^="https://challenges.cloudflare.com/"]):not([src^="https://www.recaptcha.net/recaptcha/"]):not([src^="https://www.google.com/recaptcha/"]):not([src^="https://newassets.hcaptcha.com/captcha/"])
+##fencedframe
+##noframes
+##object
+google.com
+youtube.com
+vimeo.com
+
+! General exceptions
+@@||challenges.cloudflare.com^$subdocument
+@@||www.recaptcha.net/recaptcha/api2/anchor^$subdocument
+@@||www.google.com/recaptcha/api2/anchor^$subdocument
+@@||newassets.hcaptcha.com/captcha/^$subdocument
+@@||search.brave.com^$font,other
+@@github.com^$other
+@@||github.githubassets.com^$other,domain=github.com

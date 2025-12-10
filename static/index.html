@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdBlock Rule Test Page</title>
+    <script
+      src="https://io.bugbox.app/v0/bugbox.js"
+      crossorigin
+      data-key="AZafrexVcACPUC_DEVhZDw"
+      data-release="1.0.0"
+    ></script>
+    <link href="index.css" rel="stylesheet">
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <h1>AdBlock Rule Test Page</h1>
+    <p>
+      This page allows you to test various AdBlock rules, particularly those
+      targeting subdocuments (iframes) and embedded objects.
+    </p>
+
+    <div class="test-section">
+      <h2>Custom AdBlock Rules</h2>
+      <p>
+        Get the custom rules from
+        <a
+          href="https://gist.github.com/maxmilton/8f352d731a40e6deacda043ec84b8be3"
+          target="_blank"
+          >gist.github.com/maxmilton/8f352d731a40e6deacda043ec84b8be3</a
+        >or <code>brave-adblock-rules.txt</code>, add them in <a
+          href="brave://adblock"
+          target="_blank"
+          >brave://adblock</a
+        >, and then reload this page.
+      </p>
+      <p>
+        NOTE: Frames should both have their network requests blocked
+        <em>and</em>be visually hidden.
+      </p>
+    </div>
+
+    <div class="test-section">
+      <h2>IFrame Tests</h2>
+
+      <div class="test-container">
+        <h3>1. Blank IFrame</h3>
+        <div class="info">
+          Source: <code>about:blank</code>
+          <br>
+          Expect: <em>empty + hidden</em>
+        </div>
+        <iframe src="about:blank" id="blank1-iframe"></iframe>
+        <div id="blank1-iframe-status" class="status">Checking status...</div>
+      </div>
+
+      <div class="test-container">
+        <h3>2. Blank IFrame Default</h3>
+        <div class="info">
+          Source: <code>undefined</code>(no src attribute; defaults to
+          about:blank)
+          <br>
+          Expect: <em>empty + hidden</em>
+        </div>
+        <iframe id="blank2-iframe"></iframe>
+        <div id="blank2-iframe-status" class="status">Checking status...</div>
+      </div>
+
+      <div class="test-container">
+        <h3>3. Local Browser Resource IFrame</h3>
+        <div class="info">
+          Source: <code>about://version</code>
+          <br>
+          Expect: <em>empty + hidden</em>
+        </div>
+        <iframe src="about://version" id="local1-iframe"></iframe>
+        <div id="local1-iframe-status" class="status">Checking status...</div>
+      </div>
+
+      <div class="test-container">
+        <h3>4. Local HTML Document IFrame</h3>
+        <div class="info">
+          Source: <code>/local.html</code>
+          <br>
+          Expect: <em>empty + hidden</em>
+        </div>
+        <iframe src="/local.html" id="local2-iframe"></iframe>
+        <div id="local2-iframe-status" class="status">Checking status...</div>
+      </div>
+
+      <div class="test-container">
+        <h3>5. Local Image File IFrame</h3>
+        <div class="info">
+          Source: <code>/favicon.ico</code>
+          <br>
+          Expect: <em>empty + hidden</em>
+        </div>
+        <iframe src="/favicon.ico" id="local3-iframe"></iframe>
+        <div id="local3-iframe-status" class="status">Checking status...</div>
+      </div>
+
+      <div class="test-container">
+        <h3>6. Inline HTML IFrame</h3>
+        <div class="info">
+          Source: <code>srcdoc inlined html</code>
+          <br>
+          Expect: <em>empty + hidden</em>
+        </div>
+        <iframe
+          srcdoc="<h1>Failed: Should Not Visible!</h1>"
+          id="inline1-iframe"
+        ></iframe>
+        <div id="inline1-iframe-status" class="status">Checking status...</div>
+      </div>
+
+      <div class="test-container">
+        <h3>7. Inline Image IFrame</h3>
+        <div class="info">
+          Source: <code>srcdoc inline img</code>
+          <br>
+          Expect: <em>empty + hidden</em>
+        </div>
+        <iframe
+          srcdoc="<img src='/favicon.ico' alt='favicon' width='16' height='16' />"
+          id="inline2-iframe"
+        ></iframe>
+        <div id="inline2-iframe-status" class="status">Checking status...</div>
+      </div>
+
+      <div class="test-container">
+        <h3>8. Inline Image IFrame</h3>
+        <div class="info">
+          Source: <code>img src inline base64</code>
+          <br>
+          Expect: <em>empty + hidden</em>
+        </div>
+        <!-- Created using: \`printf '<img src="data:image/x-icon;base64,%s">\n' "$(base64 -w 0 favicon.ico)"\` -->
+        <iframe
+          srcdoc="<img src='data:image/x-icon;base64,AAABAAEAEBACAAEAAQCwAAAAFgAAACgAAAAQAAAAIAAAAAEAAQAAAAAAQAAAAAAAAAAAAAAAAgAAAAIAAAAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA' alt='favicon' width='16' height='16' />"
+          id="inline3-iframe"
+        ></iframe>
+        <div id="inline3-iframe-status" class="status">Checking status...</div>
+      </div>
+
+      <div class="test-container">
+        <h3>9. Regular IFrame</h3>
+        <div class="info">
+          Source: <code>https://example.com</code>
+          <br>
+          Expect: <em>blocked + hidden</em>
+        </div>
+        <iframe src="https://example.com" id="regular-iframe"></iframe>
+        <div id="regular-iframe-status" class="status">Checking status...</div>
+      </div>
+
+      <div class="test-container">
+        <h3>10. Cloudflare Challenges IFrame</h3>
+        <div class="info">
+          Source: <code>https://challenges.cloudflare.com</code>
+          <br>
+          Expect: <em>allowed + hidden</em>
+        </div>
+        <iframe
+          src="https://challenges.cloudflare.com"
+          id="cloudflare-iframe"
+        ></iframe>
+        <div id="cloudflare-iframe-status" class="status">
+          Checking status...
+        </div>
+      </div>
+
+      <div class="test-container">
+        <h3>11. Google IFrame</h3>
+        <div class="info">
+          Source: <code>https://www.google.com</code>
+          <br>
+          Expect: <em>blocked + hidden</em>
+        </div>
+        <iframe src="https://www.google.com" id="google-iframe"></iframe>
+        <div id="google-iframe-status" class="status">Checking status...</div>
+      </div>
+
+      <div class="test-container">
+        <h3>12. Protonmail IFrame</h3>
+        <div class="info">
+          Source: <code>https://mail.proton.me/</code>
+          <br>
+          Expect: <em>blocked + hidden</em>
+        </div>
+        <iframe src="https://mail.proton.me/" id="protonmail-iframe"></iframe>
+        <div id="protonmail-iframe-status" class="status">
+          Checking status...
+        </div>
+      </div>
+    </div>
+
+    <div class="test-section">
+      <h2>Object Element Tests</h2>
+
+      <div class="test-container">
+        <h3>1. Local Image Object</h3>
+        <div class="info">
+          Data: <code>/favicon.ico</code>
+          <br>
+          Expect: <em>blocked + hidden</em>
+        </div>
+        <object
+          data="/favicon.ico"
+          type="image/x-icon"
+          id="local1-object"
+          width="16"
+          height="16"
+        ></object>
+        <div id="local1-object-status" class="status">Checking status...</div>
+      </div>
+
+      <div class="test-container">
+        <h3>2. Remote Video Object</h3>
+        <div class="info">
+          Data:
+          <code>
+            https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm
+          </code>
+          <br>
+          Expect: <em>blocked + hidden</em>
+        </div>
+        <object
+          data="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"
+          type="video/webm"
+          id="video-object"
+          width="600"
+          height="140"
+        ></object>
+        <div id="video-object-status" class="status">Checking status...</div>
+      </div>
+    </div>
+
+    <div class="test-section">
+      <h2>Embed Element Tests</h2>
+
+      <div class="test-container">
+        <h3>1. Local Image Embed</h3>
+        <div class="info">
+          Source: <code>/favicon.ico</code>
+          <br>
+          Expect: <em>blocked + hidden</em>
+        </div>
+        <embed src="/favicon.ico" type="image/x-icon" id="local1-embed">
+        <div id="local1-embed-status" class="status">Checking status...</div>
+      </div>
+
+      <div class="test-container">
+        <h3>2. Remote Video Embed</h3>
+        <div class="info">
+          Source:
+          <code>
+            https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm
+          </code>
+          <br>
+          Expect: <em>blocked + hidden</em>
+        </div>
+        <embed
+          src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"
+          type="video/webm"
+          id="video-embed"
+          width="600"
+          height="140"
+        >
+        <div id="video-embed-status" class="status">Checking status...</div>
+      </div>
+    </div>
+
+    <div class="test-section">
+      <h2>Script-Generated IFrame Test</h2>
+
+      <div class="test-container">
+        <h3>1. Dynamic IFrame Creation</h3>
+        <div class="info">
+          Source: <code>https://www.bing.com</code>
+          <br>
+          Expect: <em>blocked + hidden</em>
+        </div>
+        <button id="create-iframe">Create Dynamic IFrame</button>
+        <div id="dynamic-test-container"></div>
+        <div id="dynamic-status" class="status">Click button to test</div>
+      </div>
+    </div>
+
+    <div class="test-section">
+      <h2>Cloudflare Turnstile Test</h2>
+
+      <div class="test-container">
+        <h3>1. Turnstile Challenge</h3>
+        <div class="info">
+          Source: Explicitly rendered Cloudflare Turnstile challenge
+          <br>
+          Expect: <em>allowed + shown</em>
+        </div>
+        <div id="turnstile-container"></div>
+        <div id="turnstile-status" class="status">Checking status...</div>
+        <div id="turnstile-status2" class="status"></div>
+      </div>
+    </div>
+
+    <div class="test-section">
+      <h2>Google reCAPTCHA Test</h2>
+
+      <div class="test-container">
+        <h3>1. reCAPTCHA Challenge</h3>
+        <div class="info">
+          Source: Explicitly rendered Google reCAPTCHA challenge
+          <br>
+          Expect: <em>allowed + shown</em>
+        </div>
+        <div id="recaptcha-container"></div>
+        <div id="recaptcha-status" class="status">Checking status...</div>
+        <div id="recaptcha-status2" class="status"></div>
+      </div>
+    </div>
+  </body>
+</html>

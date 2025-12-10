@@ -1,0 +1,5 @@
+{
+  "root": true,
+  "extends": ["aglint:all"],
+  "syntax": ["UblockOrigin", "AdblockPlus"]
+}

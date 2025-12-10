@@ -1,0 +1,17 @@
+{
+  "$schema": "node_modules/turbo/schema.json",
+  "ui": "tui",
+  "tasks": {
+    "serve": { "persistent": true, "cache": false },
+    "lint:adblock": { "cache": false },
+    "lint:fmt": { "cache": false },
+    "lint:js": { "cache": false },
+    "lint:ts": { "cache": false },
+    "test": { "cache": false },
+    "test:ci": { "cache": false },
+    "test:e2e": { "cache": false }
+  },
+  "globalDependencies": ["bun.lock", "package.json"],
+  "globalEnv": ["CI", "GITHUB_ACTIONS", "NODE_ENV"],
+  "noUpdateNotifier": true
+}

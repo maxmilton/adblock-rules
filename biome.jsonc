@@ -1,0 +1,73 @@
+{
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "vcs": { "enabled": true, "clientKind": "git", "useIgnoreFile": true },
+  "assist": {
+    "actions": {
+      "recommended": true,
+      "source": { "useSortedProperties": "on" }
+    }
+  },
+  "formatter": {
+    "indentStyle": "space",
+    "lineWidth": 100
+  },
+  "linter": {
+    "domains": {
+      "project": "all"
+    },
+    "rules": {
+      "recommended": true,
+      "style": {
+        "noNonNullAssertion": "off"
+      },
+      "suspicious": {
+        "noAssignInExpressions": "off"
+      }
+    }
+  },
+  "html": {
+    "formatter": {
+      "enabled": true,
+      "indentScriptAndStyle": true,
+      "lineWidth": 80
+    }
+  },
+  "javascript": {
+    "globals": ["Bun"],
+    "formatter": {
+      "operatorLinebreak": "before"
+    }
+  },
+  "overrides": [
+    {
+      "includes": ["**/*.jsonc", ".vscode/*.json", ".oxlintrc.json", "tsconfig.json"],
+      "json": {
+        "parser": {
+          "allowComments": true,
+          "allowTrailingCommas": true
+        }
+      }
+    },
+    {
+      "includes": ["**/*.spec.ts", "**/*.test.ts", "test/**"],
+      "linter": {
+        "domains": {
+          "test": "all"
+        }
+      }
+    },
+    {
+      "includes": ["lists/scriptlets/*.js"],
+      "linter": {
+        "rules": {
+          "complexity": {
+            "useArrowFunction": "off"
+          },
+          "suspicious": {
+            "noRedundantUseStrict": "off"
+          }
+        }
+      }
+    }
+  ]
+}

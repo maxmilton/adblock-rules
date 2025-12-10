@@ -1,0 +1,12 @@
+*-lock.json*
+*-lock.yaml
+*.bak
+*.lock
+!/bun.lock
+/.turbo/
+/coverage/
+/dist/
+/node_modules/
+/playwright-report/
+/static/.well-known/appspecific/com.chrome.devtools.json
+/test-results/

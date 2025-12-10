@@ -1,0 +1,40 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "extends": ["./node_modules/@maxmilton/oxlint-config/recommended.json"],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "error",
+    "pedantic": "warn",
+    "perf": "error",
+    "style": "warn",
+    "restriction": "error",
+    "nursery": "warn"
+  },
+  "env": {
+    "browser": true,
+    "builtin": true,
+    "es2025": true
+  },
+  "globals": {
+    "Bun": "readonly"
+  },
+  "rules": {
+    "typescript/no-non-null-assertion": "off"
+  },
+  "overrides": [
+    {
+      "files": ["lists/scriptlets/*.js"],
+      "env": {
+        "es2025": false
+      },
+      "globals": {
+        "Bun": "off"
+      },
+      "rules": {
+        "eslint/func-names": "off",
+        "eslint/no-empty-function": ["error", { "allow": ["functions"] }],
+        "import/unambiguous": "off"
+      }
+    }
+  ]
+}

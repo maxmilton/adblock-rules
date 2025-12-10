@@ -1,0 +1,16 @@
+{
+  "recommendations": [
+    "adguard.adblock",
+    "biomejs.biome",
+    "Github.vscode-github-actions",
+    "ms-playwright.playwright",
+    "MylesMurphy.prettify-ts",
+    "oven.bun-vscode",
+    "oxc.oxc-vscode",
+    "redhat.vscode-yaml",
+    "stylelint.vscode-stylelint",
+    "tekumara.typos-vscode",
+    "YoavBls.pretty-ts-errors"
+  ],
+  "unwantedRecommendations": ["dprint.dprint", "esbenp.prettier-vscode", "prettier.prettier-vscode"]
+}

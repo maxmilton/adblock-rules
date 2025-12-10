@@ -1,0 +1,49 @@
+! Description: Do not use this list directly; manually pick and choose what extra rules you want to include and copy them to your custom rules.
+
+! TODO: Remove once BugBox service is deployed in production.
+! BugBox
+||io.bugbox.app/v0/*.js$script,redirect=noop.js
+||io.bugbox.app/v0/$xhr,redirect=nooptext
+
+! Sonetel
+||accounts.google.com/gsi/client^$script,domain=app.sonetel.com,redirect=user-gsi.js
+@@||app.sonetel.com^$other
+@@||msg.sonetel.com/ws-xmpp^$websocket,domain=app.sonetel.com
+
+! Shopify
+@@||admin.shopify.com^$other
+@@||cdn.shopify.com^$domain=admin.shopify.com
+
+! DSL
+gtm.dropshiplifestyle.com
+@@||player.vimeo.com$subdocument,domain=blueprint.dropshiplifestyle.com
+@@||player.vimeo.com/api/player.js$domain=blueprint.dropshiplifestyle.com
+@@||player.vimeo.com/video$domain=blueprint.dropshiplifestyle.com
+player.vimeo.com#@#video
+
+! Movie Box Pro
+www.movieboxpro.app#@#video
+@@shegu.net^$media,xhr,domain=www.movieboxpro.app
+@@||mp4.febbox.net^$media,xhr,domain=www.movieboxpro.app
+
+! ABC iview
+@@iview.abc.net.au$media,other
+iview.abc.net.au#@#video
+
+! Xbox streaming (WIP)
+@@||www.xbox.com^$other
+@@xbox.com^$webrtc
+@@||catalog.gamepass.com^$xhr,domain=www.xbox.com
+@@||accounts.xboxlive.com^$xhr,domain=www.xbox.com
+@@||rta.xboxlive.com^$xhr,domain=www.xbox.com
+@@||chat.xboxlive.com^$xhr,domain=www.xbox.com
+@@||store-images.s-microsoft.com/image/
+!@@||notificationinbox.xboxlive.com
+@@xboxlive.com
+@@||assets.play.xbox.com/playxbox/$domain=www.xbox.com
+@@||login.microsoftonline.com$domain=www.xbox.com
+
+! Miscellaneous individual exceptions
+@@||pro.kraken.com^$other
+@@||lodgeit.net.au$font,other
+@@xero.com^$other
