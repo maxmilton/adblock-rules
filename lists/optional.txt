@@ -1,3 +1,4 @@
+! https://github.com/maxmilton/adblock-rules
 ! Description: Do not use this list directly; manually pick and choose what extra rules you want to include and copy them to your custom rules.
 
 ! TODO: Remove once BugBox service is deployed in production.
