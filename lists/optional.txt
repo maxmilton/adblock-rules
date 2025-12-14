@@ -1,6 +1,29 @@
 ! https://github.com/maxmilton/adblock-rules
 ! Description: Do not use this list directly; manually pick and choose what extra rules you want to include and copy them to your custom rules.
 
+! TODO: Refine this and then move to `mm-development.txt`.
+! github.dev (web editor)
+@@||github.dev^$other
+@@||main.vscode-cdn.net^$xhr,domain=github.dev
+@@||api.github.com/repos/$xhr,domain=github.dev
+@@vscode-cdn.net/stable/$subdocument,domain=github.dev
+@@||marketplace.visualstudio.com/_apis/public/gallery/$xhr,domain=github.dev
+@@||ms-vscode.vscode-unpkg.net/ms-vscode/$xhr,domain=github.dev
+@@||github.vscode-unpkg.net/GitHub/$xhr,domain=github.dev
+@@||assets.github.dev/stable/$xhr,font,domain=github.dev
+! FIXME: Make more restrictive to domain=github.dev (or correct subdocument/parent domain)
+@@||ms-vscode.vscode-unpkg.net/ms-vscode/
+@@||github.vscode-unpkg.net/GitHub/
+@@||assets.github.dev/stable/
+@@||api.github.com/graphql^
+@@||api.github.com/user^
+@@||api.github.com/repos/
+@@||api.github.com/search/issues^
+@@gallerycdn.vsassets.io/extensions/
+@@||api.github.com^$xhr,domain=github.dev
+@@vscode-unpkg.net^$xhr,domain=github.dev
+@@vscode-cdn.net/stable/
+
 ! TODO: Remove once BugBox service is deployed in production.
 ! BugBox
 ||io.bugbox.app/v0/*.js$script,redirect=noop.js
