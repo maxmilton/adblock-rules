@@ -7,23 +7,25 @@ My custom, highly restrictive adblock rules. Designed to be used with the Brave 
 
 ## Usage
 
-```
-about:adblock
-```
+1. Open Brave adblock UI (paste into URL bar):
+   ```
+   about:adblock
+   ```
 
-```
-https://raw.githubusercontent.com/maxmilton/adblock-rules/master/lists/mm-mobile.txt
-```
+2. Choose either `mm-mobile` or `mm-workstation` list and add to the "Add custom filter lists":
+   ```
+   https://raw.githubusercontent.com/maxmilton/adblock-rules/master/lists/mm-mobile.txt
+   ```
+   ```
+   https://raw.githubusercontent.com/maxmilton/adblock-rules/master/lists/mm-workstation.txt
+   ```
 
-```
-https://raw.githubusercontent.com/maxmilton/adblock-rules/master/lists/mm-workstation.txt
-```
+3. Also add `mm-development` on dev machines
+   ```
+   https://raw.githubusercontent.com/maxmilton/adblock-rules/master/lists/mm-development.txt
+   ```
 
-```
-https://raw.githubusercontent.com/maxmilton/adblock-rules/master/lists/mm-development.txt
-```
-
-And pick and choose from the [optional filters list](./lists/optional.txt).
+4. Optionally, pick and choose filter rules from the [optional filters list](./lists/optional.txt) and paste into "Create custom filters".
 
 ### Development & Testing
 
