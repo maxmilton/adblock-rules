@@ -26,6 +26,7 @@ My custom, highly restrictive adblock rules. Designed to be used with the Brave 
    ```
 
 4. Optionally, pick and choose filter rules from the [optional filters list](./lists/optional.txt) and paste into "Create custom filters".
+5. If a filter you use references a user script (e.g., filter rule contains `redirect=user-*.js`), copy the script content from [`lists/scriptlets/*.js`](./lists/scriptlets) into "Custom scriptlets".
 
 ### Development & Testing
 
