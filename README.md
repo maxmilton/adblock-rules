@@ -7,7 +7,9 @@ My custom, highly restrictive adblock rules. Designed to be used with the Brave 
 
 ## Usage
 
-<brave://settings/shields/filters>
+```
+about:adblock
+```
 
 ```
 https://raw.githubusercontent.com/maxmilton/adblock-rules/master/lists/mm-mobile.txt
