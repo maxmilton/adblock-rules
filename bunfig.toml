@@ -8,5 +8,5 @@ auto = "disable"
 peer = true
 
 [test]
-preload = ["./test/setup.ts"]
+# preload = ["./test/setup.ts"]
 root = "./test/unit"
