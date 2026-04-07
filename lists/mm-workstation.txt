@@ -23,7 +23,7 @@ $xhr,third-party
 ##noembed
 ##frameset
 ##frame
-~mail.proton.me,~docs.proton.me,~drive.proton.me##iframe:not([src^="https://challenges.cloudflare.com/"]):not([src^="https://www.recaptcha.net/recaptcha/"]):not([src^="https://www.google.com/recaptcha/"]):not([src^="https://newassets.hcaptcha.com/captcha/"]):not([src^="chrome-extension://ghmbeldphafepmbegfdlkpapadhbakde/"])
+~mail.proton.me,~docs.proton.me,~drive.proton.me,~web-sandbox.oaiusercontent.com##iframe:not([src^="https://challenges.cloudflare.com/"]):not([src^="https://www.recaptcha.net/recaptcha/"]):not([src^="https://www.google.com/recaptcha/"]):not([src^="https://newassets.hcaptcha.com/captcha/"]):not([src^="chrome-extension://ghmbeldphafepmbegfdlkpapadhbakde/"])
 ##fencedframe
 ##noframes
 ##object
