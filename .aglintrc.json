@@ -1,5 +1,8 @@
 {
   "root": true,
   "extends": ["aglint:all"],
-  "syntax": ["UblockOrigin", "AdblockPlus"]
+  "syntax": ["UblockOrigin"],
+  "rules": {
+    "invalid-modifiers": "warn"
+  }
 }
