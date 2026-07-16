@@ -2,10 +2,6 @@
 ! Expires: 7 days
 ! Homepage: https://raw.githubusercontent.com/maxmilton/adblock-rules/master/lists/mm-workstation.txt
 
-! https://gist.github.com/maxmilton/8f352d731a40e6deacda043ec84b8be3
-! https://github.com/gorhill/uBlock/wiki/Static-filter-syntax
-! https://help.adblockplus.org/hc/articles/360062733293-How-to-write-filters
-
 ! Unwanted or bandwidth draining resources
 $font
 $media
@@ -38,8 +34,6 @@ vimeo.com
 @@||newassets.hcaptcha.com/captcha/^$subdocument
 @@||search.brave.com^$font,other
 @@||dash.cloudflare.com^$subdocument,other
-@@github.com^$other
-@@||github.githubassets.com^$other,domain=github.com
 
 ! Proton web apps
 @@proton.me^$other
@@ -56,12 +50,6 @@ mail.proton.me#@#object
 ! AI: Claude
 @@||claude.ai^$other
 @@||www.claudeusercontent.com^$subdocument,domain=claude.ai
-@@||a-cdn.anthropic.com/v1/projects/$xhr,domain=claude.ai
-@@||claude.ai/api/organizations/*/projects^$xhr
-@@||claude.ai/_next/static/media/*.woff2^$font
 @@||claude.ai/click.mp3^$media
 ! AI: ChatGPT
 @@||*.oaiusercontent.com^$xhr,domain=chatgpt.com
-! AI: Deepseek
-@@||chat.deepseek.com^$other
-@@||static.deepseek.com/chat/static/*.wasm^$xhr,domain=chat.deepseek.com

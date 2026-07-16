@@ -19,7 +19,7 @@ $websocket,third-party
 ##noembed
 ##frameset
 ##frame
-##iframe:not([src^="https://challenges.cloudflare.com/"]):not([src^="https://www.recaptcha.net/recaptcha/"]):not([src^="https://www.google.com/recaptcha/"]):not([src^="https://newassets.hcaptcha.com/captcha/"])
+!##iframe:not([src^="https://challenges.cloudflare.com/"]):not([src^="https://www.recaptcha.net/recaptcha/"]):not([src^="https://www.google.com/recaptcha/"]):not([src^="https://newassets.hcaptcha.com/captcha/"])
 ##fencedframe
 ##noframes
 ##object
@@ -35,3 +35,9 @@ vimeo.com
 @@||search.brave.com^$font,other
 @@github.com^$other
 @@||github.githubassets.com^$other,domain=github.com
+
+! AI: Claude
+@@||claude.ai^$other
+@@||www.claudeusercontent.com^$subdocument,domain=claude.ai
+! AI: ChatGPT
+@@||*.oaiusercontent.com^$xhr,domain=chatgpt.com

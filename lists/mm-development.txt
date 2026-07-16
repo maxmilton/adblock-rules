@@ -3,8 +3,11 @@
 ! Homepage: https://raw.githubusercontent.com/maxmilton/adblock-rules/master/lists/mm-development.txt
 
 ! Development tooling
-@@||productionresults*.blob.core.windows.net/actions-results/$xhr,domain=github.com
+@@github.com^$other
+@@||github.githubassets.com^$other,domain=github.com
+@@||notebooks.githubusercontent.com^$subdocument,domain=github.com
 @@||viewscreen.githubusercontent.com^$subdocument,domain=github.com
+@@||productionresults*.blob.core.windows.net/actions-results/$xhr,domain=github.com
 @@||semgrep.dev^$other
 
 ! Development exceptions
@@ -24,15 +27,7 @@
 @@||www.googleapis.com/identitytoolkit/v3/relyingparty/getProjectConfig$xhr,domain=postwoman-api.firebaseapp.com
 
 ! Dev Tools: motherduck.com & duckdb -ui
-||api.motherduck.com/logging_sink.LoggingSink/$all,important
+||api.*.motherduck.com/logging_sink.LoggingSink/$all,important
 @@||api.motherduck.com^$xhr,domain=app.motherduck.com|localhost
 @@||auth.motherduck.com/oauth/token^$xhr,domain=localhost
 @@localhost:4213^$font
-
-! Dev Tools: Flutter devtools
-!127.0.0.1:9101/devtools_analytics.js^$script,redirect=user-devtools-analytics.js
-!@@127.0.0.1:9101/flutter_service_worker.js^$other
-!@@127.0.0.1:9101/assets/$font
-!@@127.0.0.1:9101/api/$xhr
-!@@||docs.flutter.dev/f/devtools-releases.json^$xhr,domain=127.0.0.1
-!@@||docs.flutter.dev/tools/devtools/$xhr,domain=127.0.0.1

@@ -1,6 +1,11 @@
 ! https://github.com/maxmilton/adblock-rules
 ! Description: Do not use this list directly; manually pick and choose what extra rules you want to include and copy them to your custom rules.
 
+! TODO: Remove once BugBox service is deployed in production.
+! BugBox
+||io.bugbox.app/v0/*.js$script,redirect=noop.js
+||io.bugbox.app/v0/$xhr,redirect=nooptext
+
 ! TODO: Refine this and then move to `mm-development.txt`.
 ! github.dev (web editor)
 @@||github.dev^$other
@@ -24,10 +29,13 @@
 @@vscode-unpkg.net^$xhr,domain=github.dev
 @@vscode-cdn.net/stable/
 
-! TODO: Remove once BugBox service is deployed in production.
-! BugBox
-||io.bugbox.app/v0/*.js$script,redirect=noop.js
-||io.bugbox.app/v0/$xhr,redirect=nooptext
+! Dev Tools: Flutter devtools
+127.0.0.1:9101/devtools_analytics.js^$script,redirect=user-devtools-analytics.js
+@@127.0.0.1:9101/flutter_service_worker.js^$other
+@@127.0.0.1:9101/assets/$font
+@@127.0.0.1:9101/api/$xhr
+@@||docs.flutter.dev/f/devtools-releases.json^$xhr,domain=127.0.0.1
+@@||docs.flutter.dev/tools/devtools/$xhr,domain=127.0.0.1
 
 ! Sonetel
 ||accounts.google.com/gsi/client^$script,domain=app.sonetel.com,redirect=user-gsi.js
@@ -55,19 +63,34 @@ www.movieboxpro.app#@#video
 iview.abc.net.au#@#video
 
 ! Xbox streaming (WIP)
-@@||www.xbox.com^$other
-@@xbox.com^$webrtc
-@@||catalog.gamepass.com^$xhr,domain=www.xbox.com
-@@||accounts.xboxlive.com^$xhr,domain=www.xbox.com
-@@||rta.xboxlive.com^$xhr,domain=www.xbox.com
-@@||chat.xboxlive.com^$xhr,domain=www.xbox.com
-@@||store-images.s-microsoft.com/image/
-!@@||notificationinbox.xboxlive.com
-@@xboxlive.com
-@@||assets.play.xbox.com/playxbox/$domain=www.xbox.com
-@@||login.microsoftonline.com$domain=www.xbox.com
+! @@||www.xbox.com^$other
+! @@xbox.com^$webrtc
+! @@||catalog.gamepass.com^$xhr,domain=www.xbox.com
+! @@||accounts.xboxlive.com^$xhr,domain=www.xbox.com
+! @@||rta.xboxlive.com^$xhr,domain=www.xbox.com
+! @@||chat.xboxlive.com^$xhr,domain=www.xbox.com
+! @@||store-images.s-microsoft.com/image/
+! !@@||notificationinbox.xboxlive.com
+! @@xboxlive.com
+! @@||assets.play.xbox.com/playxbox/$domain=www.xbox.com
+! @@||login.microsoftonline.com$domain=www.xbox.com
 
 ! Miscellaneous individual exceptions
 @@||pro.kraken.com^$other
 @@||lodgeit.net.au$font,other
 @@xero.com^$other
+@@||wikiless.privacyredirect.com/.within.website/x/cmd/anubis/static/js/worker/sha256-webcrypto.mjs^$other
+
+! TAFE NSW
+@@||my.tafensw.edu.au/fonts/$font
+@@||www.studytafensw.edu.au/templates/flex/fonts/$font
+@@||www.studytafensw.edu.au/fonts/$font
+@@||www.studytafensw.edu.au/images/favicon/$other
+@@||login.microsoftonline.com/*/oauth2/v2.0/token$xhr,domain=my.tafensw.edu.au|www.studytafensw.edu.au
+@@||login.microsoftonline.com/common/discovery/instance^$xhr,domain=www.studytafensw.edu.au
+@@||login.microsoftonline.com/studytafensw.edu.au/v2.0/.well-known/openid-configuration$xhr,other
+@@||graph.microsoft.com/v1.0/me/$xhr,domain=my.tafensw.edu.au|www.studytafensw.edu.au
+@@||player.vimeo.com$subdocument,domain=www.studytafensw.edu.au
+@@||player.vimeo.com/api/player.js$domain=www.studytafensw.edu.au
+@@||player.vimeo.com/video$domain=www.studytafensw.edu.au
+player.vimeo.com#@#video
