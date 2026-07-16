@@ -25,7 +25,8 @@
     "Bun": "readonly"
   },
   "rules": {
-    "typescript/no-non-null-assertion": "off"
+    "typescript/no-non-null-assertion": "off",
+    "typescript/no-unsafe-type-assertion": "warn"
   },
   "overrides": [
     {
