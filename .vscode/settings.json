@@ -10,17 +10,11 @@
   "editor.tabSize": 2,
   "editor.unicodeHighlight.ambiguousCharacters": true,
   "editor.unicodeHighlight.invisibleCharacters": true,
-  "files.associations": {
-    ".oxlintrc.json": "jsonc",
-    "package.json": "jsonc",
-    "turbo.json": "jsonc"
-  },
   "git.branchProtection": ["master"],
-  "oxc.unusedDisableDirectives": "deny",
-  "prettier.enable": false, // use biome
+  "js/ts.tsdk.path": "node_modules/typescript/lib",
+  "js/ts.tsdk.promptToUseWorkspaceVersion": true,
+  "oxc.enable.oxlint": true,
   "stylelint.enable": true,
-  "typescript.enablePromptUseWorkspaceTsdk": true,
-  "typescript.tsdk": "node_modules/typescript/lib",
 
   "[css]": {
     "editor.defaultFormatter": "biomejs.biome"
@@ -30,7 +24,8 @@
   },
   "[javascript]": {
     "editor.codeActionsOnSave": {
-      "source.organizeImports": "never"
+      "source.organizeImports": "never",
+      "source.fixAll.eslint": "never"
     },
     "editor.defaultFormatter": "biomejs.biome"
   },
@@ -46,13 +41,17 @@
     "editor.unicodeHighlight.invisibleCharacters": true,
     "files.trimTrailingWhitespace": false
   },
+  "[tailwindcss]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
   "[typescript]": {
     "editor.codeActionsOnSave": {
-      "source.organizeImports": "never"
+      "source.organizeImports": "never",
+      "source.fixAll.eslint": "never"
     },
     "editor.defaultFormatter": "biomejs.biome"
   },
   "[yaml]": {
-    "editor.defaultFormatter": "redhat.vscode-yaml"
+    "editor.defaultFormatter": "biomejs.biome"
   }
 }
