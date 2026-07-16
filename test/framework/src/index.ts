@@ -1,3 +1,4 @@
+// oxlint-disable vitest/require-hook
 /* oxlint-disable no-console */
 
 // oxlint-disable-next-line require-module-specifiers
