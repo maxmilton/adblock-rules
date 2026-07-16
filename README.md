@@ -42,9 +42,14 @@ Report any bugs you encounter on the [GitHub issue tracker](https://github.com/m
 
 ## References
 
+- <https://gist.github.com/maxmilton/8f352d731a40e6deacda043ec84b8be3> my original gist
 - <https://github.com/gorhill/uBlock/wiki/Static-filter-syntax>
 - <https://help.adblockplus.org/hc/articles/360062733293-How-to-write-filters>
 - <https://github.com/brave/adblock-lists>
+- <https://github.com/brave/adblock-rust>
+- <https://github.com/brave/adblock-resources>
+- <https://github.com/AdguardTeam/AGLint>
+- <https://github.com/AdguardTeam/tsurlfilter/tree/master/packages/agtree/src/compatibility-tables>
 
 ## License
 

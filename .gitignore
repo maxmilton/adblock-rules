@@ -3,6 +3,7 @@
 *.bak
 *.lock
 !/bun.lock
+/.claude/
 /.turbo/
 /coverage/
 /dist/
