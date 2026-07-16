@@ -21,13 +21,16 @@
   },
   "devDependencies": {
     "@adguard/aglint": "3.0.2",
-    "@biomejs/biome": "2.3.8",
-    "@maxmilton/oxlint-config": "0.0.1",
-    "@playwright/test": "1.57.0",
-    "@types/bun": "1.3.4",
-    "oxlint": "1.32.0",
-    "turbo": "2.6.3",
-    "typescript": "5.9.3"
+    "@biomejs/biome": "2.5.3",
+    "@maxmilton/oxlint-config": "0.0.4",
+    "@playwright/test": "1.61.1",
+    "@types/bun": "1.3.14",
+    "adblock-rs": "0.13.0",
+    "oxlint": "1.74.0",
+    "oxlint-tsgolint": "0.24.0",
+    "typescript": "6.0.3"
   },
-  "packageManager": "bun@1.99.0"
+  "trustedDependencies": [
+    "adblock-rs"
+  ]
 }
