@@ -19,13 +19,13 @@
   },
   "devDependencies": {
     "@adguard/aglint": "3.0.2",
-    "@biomejs/biome": "2.5.3",
+    "@biomejs/biome": "2.5.4",
     "@maxmilton/oxlint-config": "0.0.4",
     "@playwright/test": "1.61.1",
     "@types/bun": "1.3.14",
-    "adblock-rs": "0.13.0",
+    "adblock-rs": "0.13.2",
     "oxlint": "1.74.0",
-    "oxlint-tsgolint": "0.24.0",
+    "oxlint-tsgolint": "0.25.0",
     "typescript": "6.0.3"
   },
   "trustedDependencies": [
