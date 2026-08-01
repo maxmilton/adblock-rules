@@ -26,7 +26,7 @@
     "adblock-rs": "0.13.2",
     "oxlint": "1.74.0",
     "oxlint-tsgolint": "0.25.0",
-    "typescript": "6.0.3"
+    "typescript": "7.0.2"
   },
   "trustedDependencies": [
     "adblock-rs"
