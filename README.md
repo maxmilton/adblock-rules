@@ -32,6 +32,8 @@ My custom, highly restrictive adblock rules. Designed to be used with the Brave 
 
 TODO: Write instructions.
 
+- <brave://flags/#brave-adblock-scriptlet-debug-logs>
+
 ## Browser support
 
 Recent versions of Brave browser.
