@@ -1,5 +1,3 @@
-/* oxlint-disable no-console */
-
 import { serve } from "bun";
 
 const server = serve({

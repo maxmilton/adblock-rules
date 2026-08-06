@@ -1,8 +1,5 @@
-// oxlint-disable vitest/require-hook
-/* oxlint-disable no-console */
-
-// oxlint-disable-next-line require-module-specifiers
-export {};
+// oxlint-disable no-console vitest/require-hook typescript/no-unsafe-type-assertion typescript/prefer-readonly-parameter-types
+export {}; // oxlint-disable-line require-module-specifiers
 
 window.addEventListener(
   "load",
@@ -33,7 +30,7 @@ function handleIframeLoad(event: Event) {
     try {
       // This will throw an error if the iframe is loaded but cross-origin,
       // or if it's completely blocked
-      const iframeDocument = target.contentDocument || target.contentWindow!.document;
+      const iframeDocument = target.contentDocument ?? target.contentWindow!.document;
       console.debug("iframe document", iframeDocument);
 
       // If we get here, it's likely same-origin and loaded
@@ -102,7 +99,7 @@ function handleEmbedAbort(event: Event) {
 }
 
 // Because this script is executed in the HTML document head, this observer will see every node mutation from the time
-new MutationObserver((list, _observer) => {
+new MutationObserver((list) => {
   for (const mutation of list) {
     if (mutation.type === "childList") {
       for (const node of mutation.addedNodes) {

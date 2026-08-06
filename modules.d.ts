@@ -25,7 +25,7 @@ declare module "adblock-rs" {
 
   // https://github.com/brave/adblock-rust/blob/18448c9d89b8d7b5a730e6d3d97b163419a4be0a/js/src/lib.rs#L80
   export class FilterSet<Debug extends boolean = false> {
-    public constructor(debug?: Debug);
+    constructor(debug?: Debug);
 
     public addFilters(
       rules: string | readonly string[],
@@ -62,7 +62,7 @@ declare module "adblock-rs" {
 
   // https://github.com/brave/adblock-rust/blob/18448c9d89b8d7b5a730e6d3d97b163419a4be0a/js/src/lib.rs#L151
   export class Engine {
-    public constructor(filter_set: FilterSet<boolean>);
+    constructor(filter_set: Readonly<FilterSet<boolean>>);
 
     public check(
       url: string,

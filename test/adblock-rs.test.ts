@@ -8,6 +8,7 @@ describe("FilterSet.intoContentBlocking", () => {
     expect.assertions(1);
     const filterSet = new FilterSet();
     filterSet.addFilters("||ads.example.com^");
+    // oxlint-disable-next-line typescript/no-confusing-void-expression
     const result = filterSet.intoContentBlocking();
     expect(result).toBeUndefined();
   });

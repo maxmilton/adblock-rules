@@ -10,7 +10,6 @@
     "skipLibCheck": true,
     "allowJs": true,
     "checkJs": true,
-    "maxNodeModuleJsDepth": 2,
     "noEmit": true,
 
     "strict": true,
