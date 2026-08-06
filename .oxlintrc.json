@@ -2,10 +2,10 @@
   "$schema": "./node_modules/oxlint/configuration_schema.json",
   "extends": ["./node_modules/@maxmilton/oxlint-config/recommended.json"],
   "options": {
-    "respectEslintDisableDirectives": false,
+    "maxWarnings": 50,
     "reportUnusedDisableDirectives": "error",
-    "typeAware": true,
-    "typeCheck": true
+    "respectEslintDisableDirectives": false,
+    "typeAware": true
   },
   "categories": {
     "correctness": "error",
@@ -16,32 +16,48 @@
     "restriction": "error",
     "nursery": "warn"
   },
+  // https://github.com/oxc-project/javascript-globals/blob/main/src/lib.rs
   "env": {
-    "browser": true,
     "builtin": true,
-    "es2025": true
+    "browser": true,
+    "es2025": true,
+    "es2026": true
   },
   "globals": {
-    "Bun": "readonly"
+    "Bun": "readonly",
+    "process": "readonly"
   },
   "rules": {
     "typescript/no-non-null-assertion": "off",
-    "typescript/no-unsafe-type-assertion": "warn"
+    "typescript/no-unsafe-type-assertion": "warn",
+    "typescript/strict-boolean-expressions": "off"
   },
   "overrides": [
     {
       "files": ["lists/scriptlets/*.js"],
       "env": {
-        "es2025": false
+        "es2025": false,
+        "es2026": false
       },
       "globals": {
-        "Bun": "off"
+        "Bun": "off",
+        "process": "off"
       },
       "rules": {
         "eslint/func-names": "off",
         "eslint/no-empty-function": ["error", { "allow": ["functions"] }],
         "import/unambiguous": "off",
+        "typescript/no-unsafe-member-access": "off",
         "unicorn/prefer-module": "off"
+      }
+    },
+    {
+      "files": ["test/framework/build.ts", "test/framework/http.ts"],
+      "plugins": ["vitest"],
+      "rules": {
+        "eslint/no-console": "off",
+        "node/no-top-level-await": "off",
+        "vitest/require-hook": "off"
       }
     }
   ]
