@@ -52,5 +52,7 @@ mail.proton.me#@#object
 @@||www.claudeusercontent.com^$subdocument,domain=claude.ai
 @@||claude.ai/click.mp3^$media
 @@||api.anthropic.com/api/$xhr,domain=fcoeoabgfenejglbffodgkkbkcdhcgfn
+@@||claude.ai/api/$xhr,domain=fcoeoabgfenejglbffodgkkbkcdhcgfn
+@@||claude.ai/cic/$subdocument,domain=fcoeoabgfenejglbffodgkkbkcdhcgfn
 ! AI: ChatGPT
 @@||*.oaiusercontent.com^$xhr,domain=chatgpt.com
