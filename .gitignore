@@ -3,7 +3,8 @@
 *.bak
 *.lock
 !/bun.lock
-/.claude/
+/.claude/settings.local.json
+/.claude/worktrees/
 /.turbo/
 /coverage/
 /dist/

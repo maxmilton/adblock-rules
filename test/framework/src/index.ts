@@ -1,4 +1,4 @@
-// oxlint-disable no-console vitest/require-hook typescript/no-unsafe-type-assertion typescript/prefer-readonly-parameter-types
+// oxlint-disable no-console vitest/require-hook typescript/no-unsafe-type-assertion
 export {}; // oxlint-disable-line require-module-specifiers
 
 window.addEventListener(
