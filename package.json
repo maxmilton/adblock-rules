@@ -18,13 +18,13 @@
     "test:e2e": "playwright test"
   },
   "devDependencies": {
-    "@adguard/aglint": "3.0.2",
-    "@biomejs/biome": "2.5.7",
-    "@maxmilton/oxlint-config": "0.0.8",
+    "@adguard/aglint": "3.0.3",
+    "@biomejs/biome": "2.5.10",
+    "@maxmilton/oxlint-config": "0.0.13",
     "@playwright/test": "1.62.1",
-    "@types/bun": "1.3.14",
-    "adblock-rs": "0.13.2",
-    "oxlint": "1.77.0",
+    "@types/bun": "1.4.0",
+    "adblock-rs": "0.13.3",
+    "oxlint": "1.80.0",
     "oxlint-tsgolint": "7.0.2001",
     "typescript": "7.0.2"
   },
