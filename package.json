@@ -18,7 +18,7 @@
     "test:e2e": "playwright test"
   },
   "devDependencies": {
-    "@adguard/aglint": "3.0.2",
+    "@adguard/aglint": "3.0.3",
     "@biomejs/biome": "2.5.7",
     "@maxmilton/oxlint-config": "0.0.8",
     "@playwright/test": "1.62.1",

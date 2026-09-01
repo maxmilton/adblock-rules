@@ -5,7 +5,7 @@
     "": {
       "name": "@maxmilton/adblock-rules",
       "devDependencies": {
-        "@adguard/aglint": "3.0.2",
+        "@adguard/aglint": "3.0.3",
         "@biomejs/biome": "2.5.7",
         "@maxmilton/oxlint-config": "0.0.8",
         "@playwright/test": "1.62.1",
@@ -21,7 +21,7 @@
     "adblock-rs",
   ],
   "packages": {
-    "@adguard/aglint": ["@adguard/aglint@3.0.2", "", { "dependencies": { "@adguard/agtree": "3.3.1", "@adguard/ecss-tree": "^1.1.0", "@inquirer/checkbox": "^1.3.7", "@inquirer/select": "^1.2.7", "chalk": "4.1.2", "clone-deep": "^4.0.1", "commander": "^11.0.0", "deepmerge": "^4.3.1", "fast-deep-equal": "^3.1.3", "fs-extra": "^11.1.1", "ignore": "^5.2.4", "inflection": "^2.0.1", "js-yaml": "^4.1.0", "strip-ansi": "6.0.1", "superstruct": "^2.0.2", "terminal-link": "2.1.1", "text-table": "^0.2.0" }, "bin": { "aglint": "dist/index.cli.js" } }, "sha512-tw5J+NSPnE29Kn1G2XY5vI6j4VK9lRdixE73G8iMKFsFhqn06NhUMfinuiggjeLYkqquZqMqJBGv1aEt4danqQ=="],
+    "@adguard/aglint": ["@adguard/aglint@3.0.3", "", { "dependencies": { "@adguard/agtree": "3.3.1", "@adguard/ecss-tree": "^1.1.0", "@inquirer/checkbox": "^1.3.7", "@inquirer/select": "^1.2.7", "chalk": "4.1.2", "clone-deep": "^4.0.1", "commander": "^11.0.0", "deepmerge": "^4.3.1", "fast-deep-equal": "^3.1.3", "fs-extra": "^11.1.1", "ignore": "^5.2.4", "inflection": "^2.0.1", "js-yaml": "^4.1.0", "strip-ansi": "6.0.1", "superstruct": "^2.0.2", "terminal-link": "2.1.1", "text-table": "^0.2.0" }, "bin": { "aglint": "dist/index.cli.js" } }, "sha512-t0n8whvYbCaii+RTPfkMg6OlEg5UlTS2iMa0DR+MY+4FH2IiuIDB2GkNpTLqp5pG2hSW/XngB92Oqa5+2eeevQ=="],
 
     "@adguard/agtree": ["@adguard/agtree@3.3.1", "", { "dependencies": { "@adguard/css-tokenizer": "^1.2.0", "camelcase-keys": "^7.0.2", "clone-deep": "^4.0.1", "is-ip": "3.1.0", "json5": "^2.2.3", "sprintf-js": "^1.1.3", "tldts": "^5.7.112", "xregexp": "^5.1.1", "zod": "3.24.4" } }, "sha512-WfJH2IbvtGi3CThD48Ok1C/NNtELxDfs24G/CACUT92/hPxXc7uvVxxxwou0sr4jNJa1Z5Eh5tmfvjBOFAsKmQ=="],
 
