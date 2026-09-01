@@ -10,7 +10,7 @@
         "@maxmilton/oxlint-config": "0.0.8",
         "@playwright/test": "1.62.1",
         "@types/bun": "1.3.14",
-        "adblock-rs": "0.13.2",
+        "adblock-rs": "0.13.3",
         "oxlint": "1.77.0",
         "oxlint-tsgolint": "7.0.2001",
         "typescript": "7.0.2",
@@ -159,7 +159,7 @@
 
     "@typescript/typescript-win32-x64": ["@typescript/typescript-win32-x64@7.0.2", "", { "os": "win32", "cpu": "x64" }, "sha512-0BQ3HkAHHlKLSp1qRvf3SUhGpGsDuhB/jgFw75guyqbxJqEaS0Cw/VFO8i2nHglJUzQCRtMMR/IBAKE3ETMC4g=="],
 
-    "adblock-rs": ["adblock-rs@0.13.2", "", { "dependencies": { "cargo-cp-artifact": "^0.1" } }, "sha512-P9DPy+R94aLeMHiHRtplx6s3okzbwBjEkgAl+wNwyUsC1gOPlKiqkvNUh/WRVZrgXjqYzCRAIqNgLB1H+/xVZA=="],
+    "adblock-rs": ["adblock-rs@0.13.3", "", { "dependencies": { "cargo-cp-artifact": "^0.1" } }, "sha512-HX1Jjo1wyB1x/NSGAW37grXhcyIB1taAoUHsqodCn2hdQiQmgcVLzU5pvpcQ7B5PWEtL2xU2iO/DPr2f1Aq4ZQ=="],
 
     "ansi-escapes": ["ansi-escapes@4.3.2", "", { "dependencies": { "type-fest": "^0.21.3" } }, "sha512-gKXj5ALrKWQLsYG9jlTRmR/xKluxHV+Z9QEwNIgCfM1/uwPMCuzVVnh5mwTd+OuBZcwSIMbqssNWRm1lE51QaQ=="],
 
