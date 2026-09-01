@@ -19,29 +19,24 @@
   // https://github.com/oxc-project/javascript-globals/blob/main/src/lib.rs
   "env": {
     "builtin": true,
-    "browser": true,
-    "es2025": true,
-    "es2026": true
-  },
-  "globals": {
-    "Bun": "readonly",
-    "process": "readonly"
+    "es2026": true, // TODO: es2027 once in oxc.
+    "bun": true,
+    "commonjs": false,
+    "browser": true
   },
   "rules": {
     "typescript/no-non-null-assertion": "off",
-    "typescript/no-unsafe-type-assertion": "warn",
-    "typescript/strict-boolean-expressions": "off"
+    "typescript/strict-boolean-expressions": "off",
+
+    // TODO: Remove when we can fix all the issues
+    "typescript/no-unsafe-type-assertion": "off"
   },
   "overrides": [
     {
       "files": ["lists/scriptlets/*.js"],
       "env": {
-        "es2025": false,
-        "es2026": false
-      },
-      "globals": {
-        "Bun": "off",
-        "process": "off"
+        "es2026": false,
+        "bun": false
       },
       "rules": {
         "eslint/func-names": "off",
