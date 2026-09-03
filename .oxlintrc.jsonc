@@ -29,7 +29,7 @@
     "typescript/strict-boolean-expressions": "off",
 
     // TODO: Remove when we can fix all the issues
-    "typescript/no-unsafe-type-assertion": "off"
+    "typescript/no-unsafe-type-assertion": "warn"
   },
   "overrides": [
     {
