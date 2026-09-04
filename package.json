@@ -20,7 +20,7 @@
   "devDependencies": {
     "@adguard/aglint": "3.0.3",
     "@biomejs/biome": "2.5.10",
-    "@maxmilton/oxlint-config": "0.0.14",
+    "@maxmilton/oxlint-config": "0.0.15",
     "@playwright/test": "1.62.1",
     "@types/bun": "1.4.0",
     "adblock-rs": "0.13.3",

@@ -7,7 +7,7 @@
       "devDependencies": {
         "@adguard/aglint": "3.0.3",
         "@biomejs/biome": "2.5.10",
-        "@maxmilton/oxlint-config": "0.0.14",
+        "@maxmilton/oxlint-config": "0.0.15",
         "@playwright/test": "1.62.1",
         "@types/bun": "1.4.0",
         "adblock-rs": "0.13.3",
@@ -57,7 +57,7 @@
 
     "@inquirer/type": ["@inquirer/type@1.5.5", "", { "dependencies": { "mute-stream": "^1.0.0" } }, "sha512-MzICLu4yS7V8AA61sANROZ9vT1H3ooca5dSmI1FjZkzq7o/koMsRfQSzRtFo+F3Ao4Sf1C0bpLKejpKB/+j6MA=="],
 
-    "@maxmilton/oxlint-config": ["@maxmilton/oxlint-config@0.0.14", "", { "peerDependencies": { "oxlint": "^1.78.0" } }, "sha512-lWTfFHQajeRu+guMf4U511k4AjajA3bvuZWf12BS26vSAtJoo3eOw6A3/UF2tByzfoVHk953DmApNRDFvTYtJg=="],
+    "@maxmilton/oxlint-config": ["@maxmilton/oxlint-config@0.0.15", "", { "peerDependencies": { "oxlint": "^1.79.0" } }, "sha512-Rj9IqAf42erCu9yJZg8O+G4q0JnDdctolgCmGOrGPmlt3sNnrws6e7Ngi+cgRTEch8AdMCVyyQGCzJTC2wk4Gg=="],
 
     "@oxlint-tsgolint/darwin-arm64": ["@oxlint-tsgolint/darwin-arm64@7.0.2001", "", { "os": "darwin", "cpu": "arm64" }, "sha512-CUJEdbSZ54+Xy9OXqOhWLTKZKV0BBiV7C2i/ygyVmXtkUNXx5YCzN8DpSSshTAKktoL7S+tnQ/ftFG/i7X896w=="],
 
