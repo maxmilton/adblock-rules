@@ -56,3 +56,4 @@ mail.proton.me#@#object
 @@||claude.ai/cic/$subdocument,domain=fcoeoabgfenejglbffodgkkbkcdhcgfn
 ! AI: ChatGPT
 @@||*.oaiusercontent.com^$xhr,domain=chatgpt.com
+@@||cdn.platform.openai.com/deployments/dil/v14/runner.html^$subdocument,domain=chatgpt.com
