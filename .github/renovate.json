@@ -7,5 +7,27 @@
     "github>maxmilton/renovate-config:auto",
     "github>maxmilton/renovate-config:manual",
     "schedule:monthly"
-  ]
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Brave keyring package version and SHA256",
+      "managerFilePatterns": ["/^\\.github\\/workflows\\/ci\\.yml$/"],
+      "matchStrings": [
+        "(?:^|\\r?\\n)[ \\t]+BRAVE_KEYRING_VERSION:[ \\t]*\"(?<currentValue>[^\"\\r\\n]+)\"\\r?\\n[ \\t]+BRAVE_KEYRING_SHA256:[ \\t]*(?<currentDigest>[a-f0-9]{64})\\b"
+      ],
+      "depNameTemplate": "brave-keyring",
+      "datasourceTemplate": "custom.brave-keyring",
+      "versioningTemplate": "deb"
+    }
+  ],
+  "customDatasources": {
+    "brave-keyring": {
+      "defaultRegistryUrlTemplate": "https://brave-browser-apt-release.s3.brave.com/dists/stable/main/binary-amd64/Packages",
+      "format": "plain",
+      "transformTemplates": [
+        "{\"releases\": [$split($join(releases.version, \"\\n\"), \"\\n\\n\")[$contains($, /^Package: brave-keyring\\n/)].{\"version\": $match($, /(?:^|\\n)Version: ([^\\n]+)/).groups[0], \"digest\": $match($, /(?:^|\\n)SHA256: ([a-f0-9]{64})(?:\\n|$)/).groups[0]}[$exists(version) and $exists(digest)]]}"
+      ]
+    }
+  }
 }

@@ -55,18 +55,26 @@ jobs:
           # renovate: depName=brave/brave-browser
           BRAVE_VERSION: v1.97.57
           BRAVE_SHA256: d79919a82aa869cf5121b641afa79958730c4bdaf36a0c51ae0f9c32f9c16bb9
+          BRAVE_KEYRING_VERSION: "1.20"
+          BRAVE_KEYRING_SHA256: 9ea8725ad4241e4d30bc31b0d5213c7ce24b1dcd5247875b2de1bcba8c4e9b00
         run: |
           tool_dir="$RUNNER_TEMP/brave"
           version="${BRAVE_VERSION#v}"
           package="brave-browser_${version}_amd64.deb"
+          keyring_package="brave-keyring_${BRAVE_KEYRING_VERSION}-1.deb"
           mkdir -p "$tool_dir"
           curl --fail --silent --show-error --location --retry 3 \
             "https://github.com/brave/brave-browser/releases/download/$BRAVE_VERSION/$package" \
             --output "$tool_dir/$package"
           printf '%s  %s\n' "$BRAVE_SHA256" "$tool_dir/$package" | sha256sum --check --strict
+          curl --fail --silent --show-error --location --retry 3 \
+            "https://brave-browser-apt-release.s3.brave.com/pool/main/b/brave-keyring/$keyring_package" \
+            --output "$tool_dir/$keyring_package"
+          printf '%s  %s\n' "$BRAVE_KEYRING_SHA256" "$tool_dir/$keyring_package" | sha256sum --check --strict
           sudo apt-get update
-          sudo apt-get install -y --no-install-recommends "$tool_dir/$package"
+          sudo apt-get install -y --no-install-recommends "$tool_dir/$package" "$tool_dir/$keyring_package"
           test "$(dpkg-query --show --showformat='${Version}' brave-browser)" = "$version"
+          test "$(dpkg-query --show --showformat='${Version}' brave-keyring)" = "$BRAVE_KEYRING_VERSION"
           brave-browser --version
         shell: bash
       - run: bun run test:e2e --reporter=github,html
