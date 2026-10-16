@@ -29,7 +29,6 @@ jobs:
         with:
           bun-version-file: .bun-version
       - run: bun install --frozen-lockfile
-      - run: bun run build
       - run: bun run test:ci --coverage-reporter=text --coverage-reporter=lcov
       - name: Report coverage
         if: ${{ github.repository_owner == 'maxmilton' }}
@@ -70,7 +69,6 @@ jobs:
           test "$(dpkg-query --show --showformat='${Version}' brave-browser)" = "$version"
           brave-browser --version
         shell: bash
-      - run: bun run build
       - run: bun run test:e2e --reporter=github,html
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: ${{ !cancelled() }}
@@ -92,5 +90,4 @@ jobs:
         with:
           bun-version-file: .bun-version
       - run: bun install --frozen-lockfile --ignore-scripts
-      - run: bun run build
       - run: bun run lint

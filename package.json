@@ -7,7 +7,6 @@
   "author": "Max Milton <max@2okki.com>",
   "type": "module",
   "scripts": {
-    "build": "exit 1",
     "lint": "bun lint:adblock && bun lint:fmt && bun lint:js && bun lint:ts",
     "lint:adblock": "aglint",
     "lint:fmt": "biome check",
