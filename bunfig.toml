@@ -13,4 +13,4 @@ minimumReleaseAge = 604800 # 7 days
 minimumReleaseAgeExcludes = ["@maxmilton/oxlint-config"]
 
 [test]
-root = "./test"
+pathIgnorePatterns = ["test/e2e/**", "**/*.bak/**"]

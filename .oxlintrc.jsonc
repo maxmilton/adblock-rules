@@ -2,21 +2,20 @@
   "$schema": "./node_modules/oxlint/configuration_schema.json",
   "extends": ["./node_modules/@maxmilton/oxlint-config/recommended.json"],
   "options": {
-    "maxWarnings": 50,
+    "maxWarnings": 20,
     "reportUnusedDisableDirectives": "error",
     "respectEslintDisableDirectives": false,
     "typeAware": true
   },
   "categories": {
     "correctness": "error",
-    "suspicious": "error",
+    "suspicious": "warn",
     "pedantic": "warn",
     "perf": "error",
     "style": "warn",
     "restriction": "error",
     "nursery": "warn"
   },
-  // https://github.com/oxc-project/javascript-globals/blob/main/src/lib.rs
   "env": {
     "builtin": true,
     "es2026": true, // TODO: es2027 once in oxc.

@@ -3,12 +3,12 @@
 *.bak
 *.lock
 !/bun.lock
-/.claude/settings.local.json
-/.claude/worktrees/
-/.turbo/
+.turbo/
+node_modules/
 /coverage/
 /dist/
-/node_modules/
 /playwright-report/
-/static/.well-known/appspecific/com.chrome.devtools.json
 /test-results/
+
+# Generated
+/static/.well-known/appspecific/com.chrome.devtools.json
