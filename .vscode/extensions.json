@@ -1,6 +1,7 @@
 {
   "recommendations": [
     "adguard.adblock",
+    "bierner.comment-tagged-templates",
     "biomejs.biome",
     "github.vscode-github-actions",
     "oven.bun-vscode",
@@ -8,7 +9,7 @@
     "stylelint.vscode-stylelint",
     "tekumara.typos-vscode",
     "typescriptteam.native-preview",
-    "YoavBls.pretty-ts-errors",
+    "yoavbls.pretty-ts-errors",
     "zizmor.zizmor-vscode"
   ],
   "unwantedRecommendations": [
