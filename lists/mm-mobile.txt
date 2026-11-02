@@ -41,3 +41,4 @@ vimeo.com
 @@||www.claudeusercontent.com^$subdocument,domain=claude.ai
 ! AI: ChatGPT
 @@||*.oaiusercontent.com^$xhr,domain=chatgpt.com
+@@||cdn.platform.openai.com/deployments/dil/v*/runner.html^$subdocument,domain=chatgpt.com
