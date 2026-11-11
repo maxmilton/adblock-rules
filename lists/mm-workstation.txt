@@ -51,6 +51,7 @@ mail.proton.me#@#object
 @@||claude.ai^$other
 @@||www.claudeusercontent.com^$subdocument,domain=claude.ai
 @@||claude.ai/click.mp3^$media
+@@||assets-proxy.anthropic.com/claude-ai/$font,domain=claude.ai
 @@||api.anthropic.com/api/$xhr,domain=fcoeoabgfenejglbffodgkkbkcdhcgfn
 @@||claude.ai/api/$xhr,domain=fcoeoabgfenejglbffodgkkbkcdhcgfn
 @@||claude.ai/cic/$subdocument,domain=fcoeoabgfenejglbffodgkkbkcdhcgfn
